@@ -36,14 +36,7 @@
       <div class="bg-neutral-900 py-6 m-4 sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
           {#if $step === -1}
-            Please select your guild from the list below:
-            <form class="block" on:submit|preventDefault>
-              <select class="bg-neutral-800 p-2 shadow rounded">
-                <option>Jonte's Other Test Server</option>
-              </select><button class="p-2 mx-2 bg-violet-600 rounded shadow"
-                >Submit</button
-              >
-            </form>
+            Work in progress, please check back later!
           {/if}
           {#if $step === 0}
             <h1 class="text-4xl font-bold text-white">Avatar Fusion</h1>
@@ -100,7 +93,7 @@
             with celebs, you might want to think twice before proceeding.
           </p>
           <a
-            href="https://discord.com/api/oauth2/authorize?client_id=1117058029846794242&permissions=0&redirect_uri={encodeURIComponent("https://avatarapi.jontes.page")}%2F%3Fstep%3D2&response_type=code&scope=bot%20identify"
+            href="https://discord.com/api/oauth2/authorize?client_id=1117058029846794242&permissions=0&redirect_uri={encodeURIComponent("https://avatar.jontes.page")}%2F%3Fstep%3D2&response_type=code&scope=bot%20identify"
             class="bg-violet-400 p-4 mt-2 rounded shadow">Sounds good</a
           >
         </div>

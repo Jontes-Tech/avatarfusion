@@ -36,8 +36,26 @@
       <div class="bg-neutral-900 py-6 m-4 sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
           {#if $step === -1}
-            Work in progress, please check back later!
-          {/if}
+            <h1 class="text-4xl">Enter Guild ID Manually</h1>
+            <form
+              on:submit|preventDefault={() => {
+                const guildid = document.getElementById("guild_id");
+                if (!guildid) return;
+                step.set(2);
+                //@ts-ignore
+                const value = guildid.value;
+                history.pushState(null, "", "/?step=2&guild_id=" + value);
+              }}
+            >
+              <input
+                class="p-2 bg-neutral-800 rounded"
+                type="number"
+                inputmode="numeric"
+                id="guild_id"
+                placeholder="Guild ID"
+              />
+              <button class="p-2 bg-[#5865F2] rounded shadow">Submit</button>
+            </form>{/if}
           {#if $step === 0}
             <h1 class="text-4xl font-bold text-white">Avatar Fusion</h1>
             <p class="mt-4 text-gray-200">
@@ -58,7 +76,8 @@
                 on:click={() => {
                   showInviteModal = true;
                 }}
-                class="p-4 mt-4 bg-[#5865F2] rounded shadow">Log in/Add Guild</button
+                class="p-4 mt-4 bg-[#5865F2] rounded shadow"
+                >Log in/Add Guild</button
               >
               <button
                 on:click={() => {
@@ -93,7 +112,9 @@
             with celebs, you might want to think twice before proceeding.
           </p>
           <a
-            href="https://discord.com/api/oauth2/authorize?client_id=1117058029846794242&permissions=0&redirect_uri={encodeURIComponent("https://avatar.jontes.page")}%2F%3Fstep%3D2&response_type=code&scope=bot%20identify"
+            href="https://discord.com/api/oauth2/authorize?client_id=1117058029846794242&permissions=0&redirect_uri={encodeURIComponent(
+              'https://avatar.jontes.page'
+            )}%2F%3Fstep%3D2&response_type=code&scope=bot%20identify"
             class="bg-violet-400 p-4 mt-2 rounded shadow">Sounds good</a
           >
         </div>

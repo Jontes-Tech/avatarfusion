@@ -11,7 +11,7 @@
       return;
     }
     let doFetch = async () => {
-      await fetch("http://localhost:3000/guild/" + guildid + "?allowBots=true")
+      await fetch("https://avatarapi.jontes.page/guild/" + guildid + "?allowBots=true")
         .then((res) => res.json())
         .then((data) => {
           guild = data;
